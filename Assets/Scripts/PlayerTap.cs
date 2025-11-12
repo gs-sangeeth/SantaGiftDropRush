@@ -14,5 +14,7 @@ public class PlayerTap : MonoBehaviour
         santa.Move(isRight);
 
         onTapEvent.Invoke(isRight);
+
+        TimerManager.instance.AddTime();
     }
 }
