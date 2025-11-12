@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class TilingSpawner : MonoBehaviour
@@ -6,6 +5,7 @@ public class TilingSpawner : MonoBehaviour
     public GameObject obj;
     public float height;
     public int spawnCount = 20;
+    public float xPos = 0;
 
     private float startHeight;
     private float topPos;
@@ -27,7 +27,7 @@ public class TilingSpawner : MonoBehaviour
         float yPos = startHeight;
         for(int i = 0; i < spawnCount; i++)
         {
-            Instantiate(obj, new Vector2(0, yPos), Quaternion.identity);
+            Instantiate(obj, new Vector2(xPos, yPos), Quaternion.identity);
             yPos += height;
         }
 
@@ -36,6 +36,6 @@ public class TilingSpawner : MonoBehaviour
 
     private void SpawnNewTile()
     {
-        Instantiate(obj, new Vector2(0, topPos), Quaternion.identity);
+        Instantiate(obj, new Vector2(xPos, topPos), Quaternion.identity);
     }
 }

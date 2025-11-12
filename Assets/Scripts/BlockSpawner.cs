@@ -13,6 +13,10 @@ public class BlockSpawner : MonoBehaviour
 
     public const float xPos = 1.2f;
 
+    private const float blockHeight = 1.5f;
+    private const float spawnHeight = blockHeight * blockCount / 2;
+    private const int blockCount = 10;
+
     private void OnEnable()
     {
         PlayerTap.tapEvent += SpawnNewBlocks;
@@ -25,11 +29,23 @@ public class BlockSpawner : MonoBehaviour
 
     private void Start()
     {
-        float y = -7.5f;
-        while (y <= 7.5f)
+        SpawnStartingBlocks();
+    }
+
+    private void SpawnStartingBlocks()
+    {
+        float y = -spawnHeight;
+        while (y <= spawnHeight)
         {
-            SpawnBlocks(yPosition: y, onlyBlanks: true);
-            y += 1.5f;
+            if (y <= 0)
+            {
+                SpawnBlocks(yPosition: y, onlyBlanks: true);
+            }
+            else
+            {
+                SpawnBlocks(yPosition: y, onlyBlanks: false);
+            }
+            y += blockHeight;
         }
     }
 
@@ -44,7 +60,7 @@ public class BlockSpawner : MonoBehaviour
         houseProbability = Mathf.Min(0.4f, houseProbability);
     }
 
-    void SpawnBlocks(float yPosition = 7.5f, bool onlyBlanks = false)
+    void SpawnBlocks(float yPosition = spawnHeight, bool onlyBlanks = false)
     {
         GameObject leftBlock = blankBlockPrefab;
         GameObject rightBlock = blankBlockPrefab;
