@@ -12,12 +12,12 @@ public class TilingSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerTap.tapEvent += SpawnNewTile;
+        PlayerTap.onTapEvent += SpawnNewTile;
     }
 
     private void OnDisable()
     {
-        PlayerTap.tapEvent -= SpawnNewTile;
+        PlayerTap.onTapEvent -= SpawnNewTile;
     }
 
     private void Start()
@@ -34,7 +34,7 @@ public class TilingSpawner : MonoBehaviour
         topPos = yPos - height;
     }
 
-    private void SpawnNewTile()
+    private void SpawnNewTile(bool _)
     {
         Instantiate(obj, new Vector2(xPos, topPos), Quaternion.identity);
     }

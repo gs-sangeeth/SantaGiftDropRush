@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    public GameObject blankBlockPrefab;
-    public GameObject houseBlockPrefab;
-    public GameObject dangerBlockPrefab;
+    public Block blankBlockPrefab;
+    public Block houseBlockPrefab;
+    public Block dangerBlockPrefab;
 
     public float difficultyIncreaseRate = 0.1f;
 
@@ -19,12 +19,12 @@ public class BlockSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerTap.tapEvent += SpawnNewBlocks;
+        PlayerTap.onTapEvent += SpawnNewBlocks;
     }
 
     private void OnDisable()
     {
-        PlayerTap.tapEvent -= SpawnNewBlocks;
+        PlayerTap.onTapEvent -= SpawnNewBlocks;
     }
 
     private void Start()
@@ -49,7 +49,7 @@ public class BlockSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnNewBlocks()
+    private void SpawnNewBlocks(bool _)
     {
         SpawnBlocks();
 
@@ -62,14 +62,12 @@ public class BlockSpawner : MonoBehaviour
 
     void SpawnBlocks(float yPosition = spawnHeight, bool onlyBlanks = false)
     {
-        GameObject leftBlock = blankBlockPrefab;
-        GameObject rightBlock = blankBlockPrefab;
+        Block leftBlock = blankBlockPrefab;
+        Block rightBlock = blankBlockPrefab;
 
         if (onlyBlanks)
         {
-            SpawnBlock(leftBlock, new Vector2(-xPos, yPosition));
-            SpawnBlock(rightBlock, new Vector2(xPos, yPosition));
-
+            InstantiateBlocks(yPosition, leftBlock, rightBlock);
             return;
         }
 
@@ -93,7 +91,7 @@ public class BlockSpawner : MonoBehaviour
         }
         else
         {
-            GameObject blockType = blankBlockPrefab;
+            Block blockType = blankBlockPrefab;
 
             if (dangerChance)
             {
@@ -114,13 +112,15 @@ public class BlockSpawner : MonoBehaviour
             }
         }
 
-        SpawnBlock(leftBlock, new Vector2(-xPos, yPosition));
-        SpawnBlock(rightBlock, new Vector2(xPos, yPosition));
+        InstantiateBlocks(yPosition, leftBlock, rightBlock);
     }
 
-    void SpawnBlock(GameObject prefab, Vector2 spawnPos)
+    private static void InstantiateBlocks(float yPosition, Block leftBlock, Block rightBlock)
     {
-        GameObject block = Instantiate(prefab, spawnPos, Quaternion.identity);
-    }
+        Block lBlock = Instantiate(leftBlock, new Vector2(-xPos, yPosition), Quaternion.identity);
+        Block rBlock = Instantiate(rightBlock, new Vector2(xPos, yPosition), Quaternion.identity);
 
+        lBlock.isRight = false;
+        rBlock.isRight = true;
+    }
 }

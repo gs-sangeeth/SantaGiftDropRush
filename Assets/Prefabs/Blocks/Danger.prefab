@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1568061077601686297}
   - component: {fileID: 7099602374384708190}
   - component: {fileID: -4149147974381768667}
+  - component: {fileID: 2576557387193793734}
   m_Layer: 0
   m_Name: Danger
-  m_TagString: Untagged
+  m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,3 +101,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cece90ecec21004abd5b2fe1babd380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  block: {fileID: 2576557387193793734}
+--- !u!114 &2576557387193793734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5060645664221162307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4af2c20093acac48abf0ffed08e7eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRight: 0
+  yPos: 0

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Danger
+  - House
   layers:
   - Default
   - TransparentFX
@@ -49,6 +51,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1242045679
+    locked: 0
+  - name: UI
+    uniqueID: 3369057039
     locked: 0
   m_RenderingLayers:
   - Default

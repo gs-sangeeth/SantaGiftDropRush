@@ -4,20 +4,33 @@ using UnityEngine;
 public class MovingObject : MonoBehaviour
 {
     private const float moveDistance = 1.5f;
+    public Block block;
+
+    float newYPos;
 
     private void OnEnable()
     {
-        PlayerTap.tapEvent += Move;
+        PlayerTap.onTapEvent += Move;
     }
 
     private void OnDisable()
     {
-        PlayerTap.tapEvent -= Move;
+        PlayerTap.onTapEvent -= Move;
     }
 
-    private void Move()
+    private void Start()
     {
-        transform.DOMoveY(transform.position.y - moveDistance, PlayerTap.jumpDuration);
+        newYPos = transform.position.y;
+    }
+
+    private void Move(bool _)
+    {
+        newYPos = newYPos - moveDistance;
+        if (block != null)
+        {
+            block.yPos = newYPos;
+        }
+        transform.DOMoveY(newYPos, Santa.jumpDuration);
 
         if (transform.position.y < -12f)
         {
