@@ -1,8 +1,9 @@
+using DG.Tweening;
 using UnityEngine;
 
-public class MoveObject : MonoBehaviour
+public class MovingObject : MonoBehaviour
 {
-    private float height;
+    private const float moveDistance = 1.5f;
 
     private void OnEnable()
     {
@@ -14,14 +15,9 @@ public class MoveObject : MonoBehaviour
         PlayerTap.tapEvent -= Move;
     }
 
-    private void Start()
-    {
-        height = transform.localScale.y;
-    }
-
     private void Move()
     {
-        transform.position += new Vector3(0, -height);
+        transform.DOMoveY(transform.position.y - moveDistance, PlayerTap.jumpDuration);
 
         if (transform.position.y < -12f)
         {
