@@ -15,7 +15,6 @@ public class Santa : MonoBehaviour
     private void Start()
     {
         playerScale = transform.localScale;
-        transform.DOShakeScale(1, .1f, 1).SetLoops(-1);
     }
 
     public void Move(bool isRight)
