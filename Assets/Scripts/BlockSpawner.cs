@@ -1,11 +1,7 @@
-using Unity.Android.Gradle;
 using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    public Block houseBlockPrefab;
-    public Block dangerBlockPrefab;
-
     public float difficultyIncreaseRate = 0.1f;
 
     public float dangerProbability = 0.3f;
@@ -70,7 +66,6 @@ public class BlockSpawner : MonoBehaviour
 
         if (onlyBlanks)
         {
-            //InstantiateBlocks(yPosition, leftBlock, rightBlock);
             return;
         }
 
@@ -115,13 +110,12 @@ public class BlockSpawner : MonoBehaviour
             }
         }
 
-
         InstantiateBlocks(yPosition, leftBlock, rightBlock);
 
-        leftBlock ??= "nothing";
-        rightBlock ??= "nothing";
+        //leftBlock ??= "nothing";
+        //rightBlock ??= "nothing";
 
-        print(leftBlock + " " + rightBlock);
+        //print(leftBlock + " " + rightBlock);
     }
 
     private static void InstantiateBlocks(float yPosition, string leftBlock, string rightBlock)

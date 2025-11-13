@@ -22,6 +22,8 @@ public class Santa : MonoBehaviour
     {
         this.isRight = isRight;
 
+        DOTween.Kill(transform);
+
         if (isRight)
         {
             transform.DOMoveX(BlockSpawner.xPos, jumpDuration);

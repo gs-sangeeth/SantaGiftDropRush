@@ -866,11 +866,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c22a60a100828044a528ee5e3912552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  houseBlockPrefab: {fileID: 3755505083837727903, guid: 95ab0343dffe92c48a7b1a4fea5848fa, type: 3}
-  dangerBlockPrefab: {fileID: 2576557387193793734, guid: 9cd5c3cd933a3034cbb6cc6af1210bd5, type: 3}
   difficultyIncreaseRate: 0.1
-  dangerProbability: 0.2
-  houseProbability: 0.3
+  dangerProbability: 0.25
+  houseProbability: 0.35
 --- !u!4 &1175598198
 Transform:
   m_ObjectHideFlags: 0
