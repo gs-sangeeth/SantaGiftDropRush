@@ -282,9 +282,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxValue: 5
   decrementValue: 0.7
-  maxDecrementvalue: 1.25
+  maxDecrementvalue: 1.1
   decrementIncreaseFactor: 0.1
-  addTimeValue: 0.25
+  addTimeValue: 0.3
   slider: {fileID: 1852713960}
 --- !u!4 &16557659
 Transform:
@@ -3552,7 +3552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1540131159
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4534,7 +4534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24151862, g: 0.42767292, b: 0.2245955, a: 0.1764706}
+  m_Color: {r: 0.24151862, g: 0.42767292, b: 0.2245955, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
