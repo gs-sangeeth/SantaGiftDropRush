@@ -280,10 +280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a63626f5fbeae44ab9ae79f41a2e1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxValue: 6
-  decrementValue: 0.5
-  maxDecrementvalue: 1
-  decrementIncreaseFactor: 0.06
+  maxValue: 5
+  decrementValue: 0.7
+  maxDecrementvalue: 1.25
+  decrementIncreaseFactor: 0.1
   addTimeValue: 0.25
   slider: {fileID: 1852713960}
 --- !u!4 &16557659

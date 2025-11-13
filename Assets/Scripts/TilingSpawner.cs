@@ -14,12 +14,12 @@ public class TilingSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerTap.onTapEvent += SpawnNewTile;
+        PlayerTap.OnTapEvent += SpawnNewTile;
     }
 
     private void OnDisable()
     {
-        PlayerTap.onTapEvent -= SpawnNewTile;
+        PlayerTap.OnTapEvent -= SpawnNewTile;
     }
 
     private void Start()

@@ -5,13 +5,13 @@ public class PlayerTap : MonoBehaviour
 {
     public Santa santa;
 
-    public static event UnityAction<bool> onTapEvent;
+    public static event UnityAction<bool> OnTapEvent;
 
     public void Tap(bool isRight)
     {
         santa.Move(isRight);
 
-        onTapEvent.Invoke(isRight);
+        OnTapEvent.Invoke(isRight);
 
         TimerManager.instance.AddTime();
     }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,14 +13,26 @@ public class TimerManager : MonoBehaviour
     public float decrementIncreaseFactor = .01f;
 
     public float addTimeValue = .1f;
+    public Slider slider;
 
     private float currentValue;
-
-    public Slider slider;
+    private bool startTimer = false;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void OnEnable()
+    {
+        PlayerTap.OnTapEvent += StartTimer;
+        GameManager.OnGameOver += StopTimer;
+    }
+
+    private void OnDisable()
+    {
+        PlayerTap.OnTapEvent -= StartTimer;
+        GameManager.OnGameOver -= StopTimer;
     }
 
     private void Start()
@@ -32,6 +45,11 @@ public class TimerManager : MonoBehaviour
 
     private void Update()
     {
+        if (!startTimer)
+        {
+            return;
+        }
+
         currentValue -= decrementValue * Time.deltaTime;
         slider.value = currentValue;
 
@@ -47,5 +65,18 @@ public class TimerManager : MonoBehaviour
     {
         currentValue = Mathf.Min( maxValue, currentValue + addTimeValue);
         slider.value = currentValue;
+    }
+
+    private void StartTimer(bool _)
+    {
+        if (!startTimer)
+        {
+            startTimer = true;
+        }
+    }
+
+    private void StopTimer()
+    {
+        startTimer = false;
     }
 }

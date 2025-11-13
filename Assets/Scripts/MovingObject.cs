@@ -11,12 +11,12 @@ public class MovingObject : MonoBehaviour, IPooledObject
 
     private void OnEnable()
     {
-        PlayerTap.onTapEvent += Move;
+        PlayerTap.OnTapEvent += Move;
     }
 
     private void OnDisable()
     {
-        PlayerTap.onTapEvent -= Move;
+        PlayerTap.OnTapEvent -= Move;
     }
 
     private void Start()

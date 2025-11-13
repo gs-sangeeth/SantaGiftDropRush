@@ -2,12 +2,12 @@ public class Danger : Block
 {
     private void OnEnable()
     {
-        PlayerTap.onTapEvent += CheckDangerCollision;
+        PlayerTap.OnTapEvent += CheckDangerCollision;
     }
 
     private void OnDisable()
     {
-        PlayerTap.onTapEvent -= CheckDangerCollision;
+        PlayerTap.OnTapEvent -= CheckDangerCollision;
     }
 
     private void CheckDangerCollision(bool santaIsRight)

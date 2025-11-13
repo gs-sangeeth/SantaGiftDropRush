@@ -6,12 +6,12 @@ public class House : Block, IPooledObject
 
     private void OnEnable()
     {
-        PlayerTap.onTapEvent += CheckMiss;
+        PlayerTap.OnTapEvent += CheckMiss;
     }
 
     private void OnDisable()
     {
-        PlayerTap.onTapEvent -= CheckMiss;
+        PlayerTap.OnTapEvent -= CheckMiss;
     }
 
     private void CheckMiss(bool santaIsRight)

@@ -19,12 +19,12 @@ public class BlockSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerTap.onTapEvent += SpawnNewBlocks;
+        PlayerTap.OnTapEvent += SpawnNewBlocks;
     }
 
     private void OnDisable()
     {
-        PlayerTap.onTapEvent -= SpawnNewBlocks;
+        PlayerTap.OnTapEvent -= SpawnNewBlocks;
     }
 
     private void Start()
