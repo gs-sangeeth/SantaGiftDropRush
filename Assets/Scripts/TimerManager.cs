@@ -54,7 +54,7 @@ public class TimerManager : MonoBehaviour
 
         if (currentValue <= 0)
         {
-            GameOverManager.instance.GameOver();
+            GameOverManager.instance.GameOver(GameOverManager.GameOverReason.timer);
         }
 
         decrementValue = Mathf.Min(maxDecrementvalue, decrementValue + decrementIncreaseFactor * Time.deltaTime);
