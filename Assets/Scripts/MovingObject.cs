@@ -9,6 +9,8 @@ public class MovingObject : MonoBehaviour, IPooledObject
 
     float newYPos;
 
+    Renderer rd;
+
     private void OnEnable()
     {
         PlayerTap.OnTapEvent += Move;
@@ -22,6 +24,7 @@ public class MovingObject : MonoBehaviour, IPooledObject
     private void Start()
     {
         newYPos = transform.position.y;
+        rd = GetComponent<Renderer>();
     }
 
     private void Move(bool _)
@@ -33,7 +36,7 @@ public class MovingObject : MonoBehaviour, IPooledObject
         }
         transform.DOMoveY(newYPos, Santa.jumpDuration);
 
-        if (transform.position.y < -12f)
+        if (transform.position.y< -12)
         {
             ObjectPooler.instance.ReturnObjectToPool(type, gameObject);
         }
@@ -50,6 +53,7 @@ public class MovingObject : MonoBehaviour, IPooledObject
         danger,
         road,
         ground,
-        blank
+        blank,
+        decor
     }
 }

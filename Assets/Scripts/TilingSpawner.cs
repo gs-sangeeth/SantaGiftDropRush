@@ -12,6 +12,11 @@ public class TilingSpawner : MonoBehaviour
     private float startHeight;
     private float topPos;
 
+    public bool delayedSpawn = false;
+    public int spawnDelay = 4;
+
+    private int spawnCounter = 0;
+
     private void OnEnable()
     {
         PlayerTap.OnTapEvent += SpawnNewTile;
@@ -24,10 +29,10 @@ public class TilingSpawner : MonoBehaviour
 
     private void Start()
     {
-        startHeight = height * -spawnCount/2;
+        startHeight = height * -spawnCount / 2;
 
         float yPos = startHeight;
-        for(int i = 0; i < spawnCount; i++)
+        for (int i = 0; i < spawnCount; i++)
         {
             SpawnTile(yPos);
             yPos += height;
@@ -38,7 +43,19 @@ public class TilingSpawner : MonoBehaviour
 
     private void SpawnNewTile(bool _)
     {
-        SpawnTile(topPos);
+        if (delayedSpawn)
+        {
+            if (spawnCounter % spawnDelay == 0)
+            {
+                SpawnTile(topPos);
+            }
+            spawnCounter++;
+        }
+        else
+        {
+
+            SpawnTile(topPos);
+        }
     }
 
     private void SpawnTile(float yPos)
