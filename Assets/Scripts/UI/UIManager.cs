@@ -6,10 +6,12 @@ public class UIManager : MonoBehaviour
 {
     private int tapCount = 0;
 
+    public GameObject panel1;
     public GameObject panel2;
     public GameObject panel3;
     public GameObject FTUEPanel;
     public GameObject tapIndicators;
+    public GameObject tapText;
 
     public TextMeshProUGUI scoreText;
 
@@ -28,6 +30,9 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         tapIndicators.transform.DOPunchScale(new Vector3(.1f, 0, 0), 1, 1).SetLoops(-1);
+        tapText.transform.DOPunchScale(Vector3.one *.1f, 1, 1).SetLoops(-1);
+
+        panel1.transform.DOPunchScale(Vector3.one * .1f, .1f, 1);
     }
 
     public void OnFTUETap()
@@ -37,9 +42,11 @@ public class UIManager : MonoBehaviour
         {
             case 1:
                 panel2.SetActive(true);
+                panel2.transform.DOPunchScale(Vector3.one * .1f, .1f, 1);
                 break;
             case 2:
                 panel3.SetActive(true);
+                panel3.transform.DOPunchScale(Vector3.one * .1f, .1f, 1);
                 break;
             case 3:
                 FTUEPanel.SetActive(false);

@@ -31,7 +31,8 @@ public class BlockSpawner : MonoBehaviour
     {
         SpawnStartingBlocks();
 
-        AudioManager.instance.Play("bgm");
+        if (!AudioManager.instance.IsPlaying("bgm"))
+            AudioManager.instance.Play("bgm");
     }
 
     private void SpawnStartingBlocks()

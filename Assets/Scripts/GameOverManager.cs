@@ -45,12 +45,18 @@ public class GameOverManager : MonoBehaviour
         {
             case GameOverReason.timer:
                 timerReason.SetActive(true);
+                houseReason.SetActive(false);
+                dangerReason.SetActive(false);
                 break;
             case GameOverReason.house:
                 houseReason.SetActive(true);
+                timerReason.SetActive(false);
+                dangerReason.SetActive(false);
                 break;
             case GameOverReason.danger:
                 dangerReason.SetActive(true);
+                houseReason.SetActive(false);
+                timerReason.SetActive(false);
                 break;
         }
 
@@ -59,6 +65,7 @@ public class GameOverManager : MonoBehaviour
     public void Restart()
     {
         AudioManager.instance.Play("button");
+        AudioManager.instance.Play("bgm");
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
