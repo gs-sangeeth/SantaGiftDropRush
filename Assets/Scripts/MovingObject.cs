@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class MovingObject : MonoBehaviour
+public class MovingObject : MonoBehaviour, IPooledObject
 {
     private const float moveDistance = 1.5f;
     public Block block;
@@ -32,9 +32,14 @@ public class MovingObject : MonoBehaviour
         }
         transform.DOMoveY(newYPos, Santa.jumpDuration);
 
-        if (transform.position.y < -12f)
-        {
-            Destroy(gameObject);
-        }
+        //if (transform.position.y < -12f)
+        //{
+        //    Destroy(gameObject);
+        //}
+    }
+
+    public void OnObjectSpawn()
+    {
+        newYPos = transform.position.y;
     }
 }

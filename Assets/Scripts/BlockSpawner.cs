@@ -1,8 +1,8 @@
+using Unity.Android.Gradle;
 using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    public Block blankBlockPrefab;
     public Block houseBlockPrefab;
     public Block dangerBlockPrefab;
 
@@ -16,6 +16,9 @@ public class BlockSpawner : MonoBehaviour
     private const float blockHeight = 1.5f;
     private const float spawnHeight = blockHeight * blockCount / 2;
     private const int blockCount = 10;
+
+    private const string houseTag = "House";
+    private const string dangerTag = "Danger";
 
     private void OnEnable()
     {
@@ -62,8 +65,8 @@ public class BlockSpawner : MonoBehaviour
 
     void SpawnBlocks(float yPosition = spawnHeight, bool onlyBlanks = false)
     {
-        Block leftBlock = blankBlockPrefab;
-        Block rightBlock = blankBlockPrefab;
+        string leftBlock = null;
+        string rightBlock = null;
 
         if (onlyBlanks)
         {
@@ -80,26 +83,26 @@ public class BlockSpawner : MonoBehaviour
         {
             if (isLeft)
             {
-                leftBlock = dangerBlockPrefab;
-                rightBlock = houseBlockPrefab;
+                leftBlock = dangerTag;
+                rightBlock = houseTag;
             }
             else
             {
-                leftBlock = houseBlockPrefab;
-                rightBlock = dangerBlockPrefab;
+                leftBlock = houseTag;
+                rightBlock = dangerTag;
             }
         }
         else
         {
-            Block blockType = blankBlockPrefab;
+            string blockType = null;
 
             if (dangerChance)
             {
-                blockType = dangerBlockPrefab;
+                blockType = dangerTag;
             }
             if (houseChance)
             {
-                blockType = houseBlockPrefab;
+                blockType = houseTag;
             }
 
             if (isLeft)
@@ -115,12 +118,18 @@ public class BlockSpawner : MonoBehaviour
         InstantiateBlocks(yPosition, leftBlock, rightBlock);
     }
 
-    private static void InstantiateBlocks(float yPosition, Block leftBlock, Block rightBlock)
+    private static void InstantiateBlocks(float yPosition, string leftBlock, string rightBlock)
     {
-        Block lBlock = Instantiate(leftBlock, new Vector2(-xPos, yPosition), Quaternion.identity);
-        Block rBlock = Instantiate(rightBlock, new Vector2(xPos, yPosition), Quaternion.identity);
+        if (leftBlock != null)
+        {
+            GameObject obj = ObjectPooler.instance.SpawnFromPool(leftBlock, new Vector2(-xPos, yPosition));
+            obj.GetComponent<Block>().isRight = false;
+        }
 
-        lBlock.isRight = false;
-        rBlock.isRight = true;
+        if (rightBlock != null)
+        {
+            GameObject obj = ObjectPooler.instance.SpawnFromPool(rightBlock, new Vector2(xPos, yPosition));
+            obj.GetComponent<Block>().isRight = true;
+        }
     }
 }

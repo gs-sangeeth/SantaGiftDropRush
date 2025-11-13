@@ -284,7 +284,7 @@ MonoBehaviour:
   decrementValue: 0.5
   maxDecrementvalue: 1
   decrementIncreaseFactor: 0.06
-  addTimeValue: 0.2
+  addTimeValue: 0.25
   slider: {fileID: 1852713960}
 --- !u!4 &16557659
 Transform:
@@ -698,6 +698,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &805373933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 805373934}
+  - component: {fileID: 805373935}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &805373934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805373933}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1351077453}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &805373935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805373933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de3b6bb6fdd148e4499985a8fc817e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: House
+    prefab: {fileID: 3240150798383789729, guid: 95ab0343dffe92c48a7b1a4fea5848fa, type: 3}
+    size: 10
+  - tag: Danger
+    prefab: {fileID: 5060645664221162307, guid: 9cd5c3cd933a3034cbb6cc6af1210bd5, type: 3}
+    size: 10
 --- !u!1 &816591715
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c22a60a100828044a528ee5e3912552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blankBlockPrefab: {fileID: 4065265217440548107, guid: 6725e3df68f1a124593067830a65202c, type: 3}
   houseBlockPrefab: {fileID: 3755505083837727903, guid: 95ab0343dffe92c48a7b1a4fea5848fa, type: 3}
   dangerBlockPrefab: {fileID: 2576557387193793734, guid: 9cd5c3cd933a3034cbb6cc6af1210bd5, type: 3}
   difficultyIncreaseRate: 0.1
@@ -955,6 +1005,7 @@ Transform:
   - {fileID: 1175598198}
   - {fileID: 16557659}
   - {fileID: 1197558854}
+  - {fileID: 805373934}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1434944833
