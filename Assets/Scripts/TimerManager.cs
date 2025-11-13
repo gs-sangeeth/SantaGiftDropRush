@@ -35,6 +35,11 @@ public class TimerManager : MonoBehaviour
         currentValue -= decrementValue * Time.deltaTime;
         slider.value = currentValue;
 
+        if (currentValue <= 0)
+        {
+            GameManager.instance.GameOver();
+        }
+
         decrementValue = Mathf.Min(maxDecrementvalue, decrementValue + decrementIncreaseFactor * Time.deltaTime);
     }
 

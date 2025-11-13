@@ -57,8 +57,14 @@ public class ObjectPooler : MonoBehaviour
         DOTween.Kill(objectToSpawn.transform);
         objectToSpawn.transform.position = position;
 
-        IPooledObject pooledObject = objectToSpawn.GetComponent<IPooledObject>();
-        pooledObject?.OnObjectSpawn();
+        IPooledObject[] pooledObjInterfaces = objectToSpawn.GetComponents<IPooledObject>();
+        if (pooledObjInterfaces != null)
+        {
+            foreach(IPooledObject obj in pooledObjInterfaces)
+            {
+                obj.OnObjectSpawn();
+            }
+        }
 
         return objectToSpawn;
     }

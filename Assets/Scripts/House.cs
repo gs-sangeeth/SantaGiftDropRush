@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class House : Block
+public class House : Block, IPooledObject
 {
     [SerializeField]private bool houseGifted = false;
 
@@ -27,8 +27,14 @@ public class House : Block
             }
             if (!houseGifted)
             {
+                GameManager.instance.GameOver();
                 print("GameOver House Missed");
             }
         }
+    }
+
+    public void OnObjectSpawn()
+    {
+        houseGifted = false;
     }
 }
