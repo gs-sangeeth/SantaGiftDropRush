@@ -82,3 +82,12 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: lose
+    clip: {fileID: 8300000, guid: 35e2490ff74c1fd4cb79dd81e99a3829, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.01
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}

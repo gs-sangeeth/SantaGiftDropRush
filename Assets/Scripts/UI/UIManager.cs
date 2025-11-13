@@ -63,6 +63,6 @@ public class UIManager : MonoBehaviour
 
     private void UpdateScore(bool _)
     {
-        scoreText.text = ScoreManager.instance.Score.ToString();
+        scoreText.text = (ScoreManager.instance.Score + 1).ToString();
     }
 }

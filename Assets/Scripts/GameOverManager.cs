@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,6 +12,9 @@ public class GameOverManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
 
+    public GameObject scorePanel;
+    public GameObject gameOverPanel;
+
     public GameObject timerReason;
     public GameObject houseReason;
     public GameObject dangerReason;
@@ -19,13 +23,31 @@ public class GameOverManager : MonoBehaviour
 
     private const string highScoreKey = "HighScore";
 
+    public bool IsGameOver { get; private set; } = false;
+
+    Coroutine gameOverCoroutine;
+
     private void Awake()
     {
         instance = this;
     }
 
+
     public void GameOver(GameOverReason reason)
     {
+        if (!IsGameOver)
+        {
+            AudioManager.instance.Play("lose");
+            gameOverCoroutine = StartCoroutine(DoGameOver(reason));
+        }
+    }
+
+    IEnumerator DoGameOver(GameOverReason reason)
+    {
+        IsGameOver = true;
+
+        yield return new WaitForSeconds(2f);
+
         gameOverScreen.SetActive(true);
         OnGameOver.Invoke();
 
@@ -59,7 +81,6 @@ public class GameOverManager : MonoBehaviour
                 timerReason.SetActive(false);
                 break;
         }
-
     }
 
     public void Restart()

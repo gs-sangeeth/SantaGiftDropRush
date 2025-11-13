@@ -9,6 +9,11 @@ public class PlayerTap : MonoBehaviour
 
     public void Tap(bool isRight)
     {
+        if (GameOverManager.instance.IsGameOver)
+        {
+            return;
+        }
+
         santa.Move(isRight);
 
         OnTapEvent.Invoke(isRight);

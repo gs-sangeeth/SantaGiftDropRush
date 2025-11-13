@@ -4435,6 +4435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31198c5e6cae7e4e935a1c371f7b238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panel1: {fileID: 203164358}
   panel2: {fileID: 750872164}
   panel3: {fileID: 553739272}
   FTUEPanel: {fileID: 1540131158}
@@ -5194,6 +5195,8 @@ MonoBehaviour:
   gameOverScreen: {fileID: 1864037668}
   scoreText: {fileID: 472539436}
   highScoreText: {fileID: 1536858142}
+  scorePanel: {fileID: 0}
+  gameOverPanel: {fileID: 0}
   timerReason: {fileID: 1607902501}
   houseReason: {fileID: 571656583}
   dangerReason: {fileID: 983702762}
