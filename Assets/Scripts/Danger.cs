@@ -16,7 +16,7 @@ public class Danger : Block
         {
             if (isRight == santaIsRight)
             {
-                GameManager.instance.GameOver();
+                GameOverManager.instance.GameOver();
                 print("Game Over Jumped on Tree");
             }
         }

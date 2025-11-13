@@ -27,7 +27,7 @@ public class House : Block, IPooledObject
             }
             if (!houseGifted)
             {
-                GameManager.instance.GameOver();
+                GameOverManager.instance.GameOver();
                 print("GameOver House Missed");
             }
         }

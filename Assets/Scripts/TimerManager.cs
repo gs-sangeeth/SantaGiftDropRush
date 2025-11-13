@@ -25,13 +25,13 @@ public class TimerManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerTap.OnTapEvent += StartTimer;
-        GameManager.OnGameOver += StopTimer;
+        GameOverManager.OnGameOver += StopTimer;
     }
 
     private void OnDisable()
     {
         PlayerTap.OnTapEvent -= StartTimer;
-        GameManager.OnGameOver -= StopTimer;
+        GameOverManager.OnGameOver -= StopTimer;
     }
 
     private void Start()
@@ -54,7 +54,7 @@ public class TimerManager : MonoBehaviour
 
         if (currentValue <= 0)
         {
-            GameManager.instance.GameOver();
+            GameOverManager.instance.GameOver();
         }
 
         decrementValue = Mathf.Min(maxDecrementvalue, decrementValue + decrementIncreaseFactor * Time.deltaTime);
