@@ -1,8 +1,9 @@
 using UnityEngine;
+using static MovingObject;
 
 public class TilingSpawner : MonoBehaviour
 {
-    public string objectTag;
+    public ObjectType objectTag;
     public float height;
     public int spawnCount = 20;
     public float xPos = 0;

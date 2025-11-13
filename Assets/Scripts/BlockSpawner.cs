@@ -1,4 +1,5 @@
 using UnityEngine;
+using static MovingObject;
 
 public class BlockSpawner : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class BlockSpawner : MonoBehaviour
     private const float spawnHeight = blockHeight * blockCount / 2;
     private const int blockCount = 10;
 
-    private const string houseTag = "House";
-    private const string dangerTag = "Danger";
+    private const ObjectType houseTag = ObjectType.house;
+    private const ObjectType dangerTag = ObjectType.danger;
 
     private void OnEnable()
     {
@@ -61,8 +62,8 @@ public class BlockSpawner : MonoBehaviour
 
     void SpawnBlocks(float yPosition = spawnHeight, bool onlyBlanks = false)
     {
-        string leftBlock = null;
-        string rightBlock = null;
+        ObjectType leftBlock = ObjectType.blank;
+        ObjectType rightBlock = ObjectType.blank;
 
         if (onlyBlanks)
         {
@@ -89,7 +90,7 @@ public class BlockSpawner : MonoBehaviour
         }
         else
         {
-            string blockType = null;
+            ObjectType blockType = ObjectType.blank;
 
             if (dangerChance)
             {
@@ -118,15 +119,15 @@ public class BlockSpawner : MonoBehaviour
         //print(leftBlock + " " + rightBlock);
     }
 
-    private static void InstantiateBlocks(float yPosition, string leftBlock, string rightBlock)
+    private static void InstantiateBlocks(float yPosition, ObjectType leftBlock, ObjectType rightBlock)
     {
-        if (leftBlock != null)
+        if (leftBlock != ObjectType.blank)
         {
             GameObject obj = ObjectPooler.instance.SpawnFromPool(leftBlock, new Vector2(-xPos, yPosition));
             obj.GetComponent<Block>().isRight = false;
         }
 
-        if (rightBlock != null)
+        if (rightBlock != ObjectType.blank)
         {
             GameObject obj = ObjectPooler.instance.SpawnFromPool(rightBlock, new Vector2(xPos, yPosition));
             obj.GetComponent<Block>().isRight = true;

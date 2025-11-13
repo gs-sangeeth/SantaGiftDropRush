@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MovingObject : MonoBehaviour, IPooledObject
 {
+    public ObjectType type;
     private const float moveDistance = 1.5f;
     public Block block;
 
@@ -32,14 +33,23 @@ public class MovingObject : MonoBehaviour, IPooledObject
         }
         transform.DOMoveY(newYPos, Santa.jumpDuration);
 
-        //if (transform.position.y < -12f)
-        //{
-        //    Destroy(gameObject);
-        //}
+        if (transform.position.y < -12f)
+        {
+            ObjectPooler.instance.ReturnObjectToPool(type, gameObject);
+        }
     }
 
     public void OnObjectSpawn()
     {
         newYPos = transform.position.y;
+    }
+
+    public enum ObjectType
+    {
+        house,
+        danger,
+        road,
+        ground,
+        blank
     }
 }
