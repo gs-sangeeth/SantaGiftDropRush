@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -38,6 +39,8 @@ public class GameOverManager : MonoBehaviour
         if (!IsGameOver)
         {
             AudioManager.instance.Play("lose");
+            AudioManager.instance.Pause("bgm");
+
             gameOverCoroutine = StartCoroutine(DoGameOver(reason));
         }
     }
@@ -51,8 +54,8 @@ public class GameOverManager : MonoBehaviour
         gameOverScreen.SetActive(true);
         OnGameOver.Invoke();
 
-        AudioManager.instance.Pause("bgm");
-
+        scorePanel.transform.DOPunchScale(Vector3.one * .1f, .1f, 1);
+        gameOverPanel.transform.DOPunchScale(Vector3.one * .1f, .1f, 1);
 
         scoreText.text = ScoreManager.instance.Score.ToString();
 
