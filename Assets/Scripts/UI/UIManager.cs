@@ -1,7 +1,8 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
-public class FTUE : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     private int tapCount = 0;
 
@@ -10,14 +11,23 @@ public class FTUE : MonoBehaviour
     public GameObject FTUEPanel;
     public GameObject tapIndicators;
 
+    public TextMeshProUGUI scoreText;
+
     private void OnEnable()
     {
         PlayerTap.OnTapEvent += DisableIndicator;
+        PlayerTap.OnTapEvent += UpdateScore;
     }
 
     private void OnDisable()
     {
         PlayerTap.OnTapEvent -= DisableIndicator;
+        PlayerTap.OnTapEvent -= UpdateScore;
+    }
+
+    private void Start()
+    {
+        tapIndicators.transform.DOPunchScale(new Vector3(.1f, 0, 0), 1, 1).SetLoops(-1);
     }
 
     public void OnFTUETap()
@@ -32,8 +42,6 @@ public class FTUE : MonoBehaviour
                 panel3.SetActive(true);
                 break;
             case 3:
-                tapIndicators.SetActive(true);
-                tapIndicators.transform.DOPunchScale(new Vector3(.1f,0,0),1,1).SetLoops(-1);
                 FTUEPanel.SetActive(false);
                 break;
         }
@@ -42,5 +50,10 @@ public class FTUE : MonoBehaviour
     private void DisableIndicator(bool _)
     {
         tapIndicators.SetActive(false);
+    }
+
+    private void UpdateScore(bool _)
+    {
+        scoreText.text = ScoreManager.instance.Score.ToString();
     }
 }
