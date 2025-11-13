@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class House : Block, IPooledObject
 {
+    public ParticleSystem giftEffect;
+
     [SerializeField]private bool houseGifted = false;
 
     private void OnEnable()
@@ -24,6 +26,7 @@ public class House : Block, IPooledObject
                 {
                     houseGifted = true;
                     AudioManager.instance.Play("gift");
+                    giftEffect.Play();
                 }
             }
             if (!houseGifted)
