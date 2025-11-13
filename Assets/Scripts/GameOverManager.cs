@@ -29,6 +29,9 @@ public class GameOverManager : MonoBehaviour
         gameOverScreen.SetActive(true);
         OnGameOver.Invoke();
 
+        AudioManager.instance.Pause("bgm");
+
+
         scoreText.text = ScoreManager.instance.Score.ToString();
 
         if (PlayerPrefs.GetInt(highScoreKey) < ScoreManager.instance.Score)
@@ -55,6 +58,8 @@ public class GameOverManager : MonoBehaviour
 
     public void Restart()
     {
+        AudioManager.instance.Play("button");
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

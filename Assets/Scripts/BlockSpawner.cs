@@ -30,6 +30,8 @@ public class BlockSpawner : MonoBehaviour
     private void Start()
     {
         SpawnStartingBlocks();
+
+        AudioManager.instance.Play("bgm");
     }
 
     private void SpawnStartingBlocks()

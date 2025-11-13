@@ -23,6 +23,7 @@ public class House : Block, IPooledObject
                 if(isRight == santaIsRight)
                 {
                     houseGifted = true;
+                    AudioManager.instance.Play("gift");
                 }
             }
             if (!houseGifted)

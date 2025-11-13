@@ -14,5 +14,7 @@ public class PlayerTap : MonoBehaviour
         OnTapEvent.Invoke(isRight);
 
         TimerManager.instance.AddTime();
+
+        AudioManager.instance.Play("jump");
     }
 }

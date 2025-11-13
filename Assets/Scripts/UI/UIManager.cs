@@ -45,6 +45,8 @@ public class UIManager : MonoBehaviour
                 FTUEPanel.SetActive(false);
                 break;
         }
+
+        AudioManager.instance.Play("button");
     }
 
     private void DisableIndicator(bool _)
