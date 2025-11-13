@@ -2312,6 +2312,9 @@ MonoBehaviour:
   - tag: 5
     prefab: {fileID: 5391199740945318911, guid: b383e87141618dd41953bca4aafa065c, type: 3}
     size: 8
+  - tag: 6
+    prefab: {fileID: 1265330342860217666, guid: bf5e9640cb2cae948bc8f044a83d37cf, type: 3}
+    size: 8
 --- !u!1 &816591715
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,6 +3122,7 @@ GameObject:
   - component: {fileID: 1175598200}
   - component: {fileID: 1175598201}
   - component: {fileID: 1175598202}
+  - component: {fileID: 1175598203}
   m_Layer: 0
   m_Name: BlockSpawner
   m_TagString: Untagged
@@ -3226,6 +3230,24 @@ MonoBehaviour:
   height: 6
   spawnCount: 5
   xPos: -2.3
+  delayedSpawn: 1
+  spawnDelay: 4
+--- !u!114 &1175598203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175598196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1ed1844d8fb6045954728df17122c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectTag: 6
+  height: 6
+  spawnCount: 5
+  xPos: 2.3
   delayedSpawn: 1
   spawnDelay: 4
 --- !u!1 &1197558852

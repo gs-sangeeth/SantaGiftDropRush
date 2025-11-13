@@ -36,7 +36,7 @@ public class MovingObject : MonoBehaviour, IPooledObject
         }
         transform.DOMoveY(newYPos, Santa.jumpDuration);
 
-        if (transform.position.y< -12)
+        if (transform.position.y < -12)
         {
             ObjectPooler.instance.ReturnObjectToPool(type, gameObject);
         }
@@ -54,6 +54,7 @@ public class MovingObject : MonoBehaviour, IPooledObject
         road,
         ground,
         blank,
-        decor
+        decor,
+        rightDecor
     }
 }
