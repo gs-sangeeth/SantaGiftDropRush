@@ -5,18 +5,8 @@ public class MovingSprite : MonoBehaviour
 {
     public RawImage image;
 
-    private void OnEnable()
+    private void Update()
     {
-        PlayerTap.OnTapEvent += MoveImage;
-    }
-
-    private void OnDisable()
-    {
-        PlayerTap.OnTapEvent -= MoveImage;
-    }
-
-    private void MoveImage(bool _)
-    {
-        image.uvRect =  new Rect(image.uvRect.position + new Vector2(0,-1.5f), image.uvRect.size);
+        image.uvRect =  new Rect(image.uvRect.position + new Vector2(.1f,.1f) * Time.deltaTime, image.uvRect.size);
     }
 }
