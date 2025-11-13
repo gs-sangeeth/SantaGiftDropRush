@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class TilingSpawner : MonoBehaviour
 {
-    public GameObject obj;
+    public string objectTag;
     public float height;
     public int spawnCount = 20;
     public float xPos = 0;
+
 
     private float startHeight;
     private float topPos;
@@ -27,7 +28,7 @@ public class TilingSpawner : MonoBehaviour
         float yPos = startHeight;
         for(int i = 0; i < spawnCount; i++)
         {
-            Instantiate(obj, new Vector2(xPos, yPos), Quaternion.identity);
+            SpawnTile(yPos);
             yPos += height;
         }
 
@@ -36,6 +37,11 @@ public class TilingSpawner : MonoBehaviour
 
     private void SpawnNewTile(bool _)
     {
-        Instantiate(obj, new Vector2(xPos, topPos), Quaternion.identity);
+        SpawnTile(topPos);
+    }
+
+    private void SpawnTile(float yPos)
+    {
+        ObjectPooler.instance.SpawnFromPool(objectTag, new Vector2(xPos, yPos));
     }
 }

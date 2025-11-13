@@ -749,6 +749,12 @@ MonoBehaviour:
   - tag: Danger
     prefab: {fileID: 5060645664221162307, guid: 9cd5c3cd933a3034cbb6cc6af1210bd5, type: 3}
     size: 10
+  - tag: Road
+    prefab: {fileID: 3027478748632109428, guid: b605a56b122822640aebd42c437ccca3, type: 3}
+    size: 20
+  - tag: Ground
+    prefab: {fileID: 1406397534162829894, guid: 3a5c9bd8d53d4dd4d85bef8521882087, type: 3}
+    size: 30
 --- !u!1 &816591715
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1ed1844d8fb6045954728df17122c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 3027478748632109428, guid: b605a56b122822640aebd42c437ccca3, type: 3}
+  objectTag: Road
   height: 0.8
   spawnCount: 20
   xPos: 0
@@ -908,7 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1ed1844d8fb6045954728df17122c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1406397534162829894, guid: 3a5c9bd8d53d4dd4d85bef8521882087, type: 3}
+  objectTag: Ground
   height: 1.5
   spawnCount: 10
   xPos: 1.2
@@ -924,7 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1ed1844d8fb6045954728df17122c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1406397534162829894, guid: 3a5c9bd8d53d4dd4d85bef8521882087, type: 3}
+  objectTag: Ground
   height: 1.5
   spawnCount: 10
   xPos: -1.2

@@ -70,7 +70,7 @@ public class BlockSpawner : MonoBehaviour
 
         if (onlyBlanks)
         {
-            InstantiateBlocks(yPosition, leftBlock, rightBlock);
+            //InstantiateBlocks(yPosition, leftBlock, rightBlock);
             return;
         }
 
@@ -115,7 +115,13 @@ public class BlockSpawner : MonoBehaviour
             }
         }
 
+
         InstantiateBlocks(yPosition, leftBlock, rightBlock);
+
+        leftBlock ??= "nothing";
+        rightBlock ??= "nothing";
+
+        print(leftBlock + " " + rightBlock);
     }
 
     private static void InstantiateBlocks(float yPosition, string leftBlock, string rightBlock)
